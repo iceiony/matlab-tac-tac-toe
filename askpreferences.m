@@ -1,8 +1,12 @@
 function choices = askpreferences
+% opens a GUI with drop down options for game preferences
+
     WINDOW_HEIGHT = 200;
     WINDOW_WIDTH = 200;
 
-    window = dialog('Name','Game Preferences');
+    window = dialog('Name','Game Preferences',...
+        'CloseRequestFcn' , @return_nan);
+    
     window.Position(3) = WINDOW_WIDTH;
     window.Position(4) = WINDOW_HEIGHT;
 
@@ -76,13 +80,21 @@ function choices = askpreferences
         switch gameTypePopup.Value
             case 1
                 GamePreferences.Type = 'PvC';
+                GamePreferences.PlayerNames = { 'Player', 'Computer' };
             case 2
-                GamePreferences.Type = 'PvP';
+                GamePreferences.Type = 'PvP' ;
+                GamePreferences.PlayerNames = { 'Player 1 ', 'Player 2' };
             case 3
                 GamePreferences.Type = 'CvC';
+                GamePreferences.PlayerNames = { 'Computer 1', 'Computer 2' };
         end
         
         choices = GamePreferences;
+        delete(window);
+    end
+
+    function return_nan(~,~)
+        choices = NaN;
         delete(window);
     end
 
