@@ -36,7 +36,7 @@ function choices = askpreferences
  
     gameTypePopup = uicontrol('Parent',window,...
         'Style','popup',...
-        'String',{'Computer vs Player','Player vs Player','Computer vs Computer'},...
+        'String',{'Player vs Computer','Player vs Player','Computer vs Computer'},...
         'Position',[24 topalign(140) 170 20]);
     
 %     
@@ -55,9 +55,33 @@ function choices = askpreferences
 
     % on Play button click return the settings to the invoker
     function retrieve_settings(~,~)
-        GamePreferences.Size =  gameSizePopup.Value;
-        GamePreferences.Symbol = symbolPopup.Value;
-        GamePreferences.Type = gameTypePopup.Value;
+        
+        % convert choices to more representative values
+        switch gameSizePopup.Value
+            case 1 
+                GamePreferences.Size = [3 3];
+            case 2
+                GamePreferences.Size = [4 4];
+            case 3
+                GamePreferences.Size = [5 5];
+        end
+        
+        switch symbolPopup.Value
+            case 1 
+                GamePreferences.Symbol = 'O';
+            case 2 
+                GamePreferences.Symbol = 'X';
+        end
+        
+        switch gameTypePopup.Value
+            case 1
+                GamePreferences.Type = 'PvC';
+            case 2
+                GamePreferences.Type = 'PvP';
+            case 3
+                GamePreferences.Type = 'CvC';
+        end
+        
         choices = GamePreferences;
         delete(window);
     end
