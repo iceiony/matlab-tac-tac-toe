@@ -79,13 +79,13 @@ function choices = askpreferences
         
         switch gameTypePopup.Value
             case 1
-                GamePreferences.Type = 'PvC';
+                GamePreferences.PlayerIsComputer = [0 1];
                 GamePreferences.PlayerNames = { 'Player', 'Computer' };
             case 2
-                GamePreferences.Type = 'PvP' ;
+                GamePreferences.PlayerIsComputer = [0 0];
                 GamePreferences.PlayerNames = { 'Player 1 ', 'Player 2' };
             case 3
-                GamePreferences.Type = 'CvC';
+                GamePreferences.PlayerIsComputer  = [1 1];
                 GamePreferences.PlayerNames = { 'Computer 1', 'Computer 2' };
         end
         

@@ -4,12 +4,9 @@ function [ choice ] = randomchoice( game )
    possible = find( game.Board == 0 );
    cellNo = possible(randi(length(possible)));
    
-   row = mod(cellNo,game.MaxRow);
-   if row == 0 
-       row = game.maxRow;
-   end;
-   
-   col = ceil(cellNo / game.MaxCol);
+   %transform the cellNo into a row by modulus number of rows 
+   row = mod(cellNo - 1,game.MaxRow) + 1; 
+   col = ceil(cellNo / game.MaxRow);
    
    choice = [row col];
 end
