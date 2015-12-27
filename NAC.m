@@ -14,4 +14,8 @@ Game.Bord = zeros(Game.Preferences.Size(1),Game.Preferences.Size(2));
 %initialise graphics
 [bordImg,oImg,xImg] = loadassets(Game.Preferences); 
 
+fig = figure();
+set(fig,'menubar','none');
+set(fig,'resize','off');
+
 
