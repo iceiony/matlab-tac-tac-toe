@@ -1,8 +1,9 @@
 function [ choice ] = smartchoice(game)
-% makes a choice allowing the computer to win or preventing oponent from
-% winning
-% chioce represents the indices of the cell chosen 
-% note : this algorithm is not optimised and can be slow for big bords 
+% Makes a choice allowing the computer to win or preventing oponent from
+% winning. There is no forsight in the AI's choice and no intricate strategy.
+% Chioce represents the indices of the cell chosen 
+% Note : this algorithm is not optimised as it checks every available cell
+% if it is a winning move
 
 %select all free cells
 availableMoves = (game.Board == 0);
