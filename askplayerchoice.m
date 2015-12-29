@@ -4,8 +4,14 @@ maxX = fig.Children.XLim(2);
 maxY = fig.Children.YLim(2);
 
 while(true)
-    [x,y]= ginput(1);
-
+    try 
+        %catch user closing the figure 
+        [x,y]= ginput(1);
+    catch
+        choice = [];
+        return;
+    end
+    
     %if clicked within figure 
     if x > 0 && x < maxX && y > 0 && y < maxY 
         %calcualte row column location
