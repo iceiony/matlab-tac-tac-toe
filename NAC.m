@@ -14,10 +14,12 @@ while(true)
     winner = playonegame(game,preferences);
     if ~isnan(winner) && winner ~= 0
         game.Score(winner) = game.Score(winner)+1;
-        game.CurrentPlayer = mod(game.CurrentPlayer,2) +1;
     elseif isnan(winner)
         return;
     end
+    
+    %switch other player to start
+    game.CurrentPlayer = mod(game.CurrentPlayer,2) +1;
     
     gameScore = sprintf('%s vs %s : %d-%d\nPlay Another?',...
         preferences.PlayerNames{1},...

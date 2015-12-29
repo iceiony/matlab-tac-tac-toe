@@ -9,7 +9,7 @@ function [winner] = playonegame(game,preferences)
 
     while(~game.IsEnded)
         if preferences.PlayerIsComputer(game.CurrentPlayer)
-            choice = randomchoice(game);
+            choice = smartchoice(game);%used to be randomchoice(game)
         else
             choice = askplayerchoice(game);
             if isempty(choice)

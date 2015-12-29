@@ -23,6 +23,8 @@ for idx = 1:length(equations)
 end
 
 board = (game.Board == game.CurrentPlayer);
+board(choice(1),choice(2)) = 1; %mark the choice as if it were made
+
 for idx = 1:length(points)
 %in a moving window of size 3 see if the points on the board belong to the same player
     for j = 1:(length(points{idx})-2)
