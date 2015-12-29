@@ -1,7 +1,7 @@
-function [ choice ] = askplayerchoice( fig,game )
+function [ choice ] = askplayerchoice( game )
 %waits until player chooses a cell that is empty 
-maxX = fig.Children.XLim(2);
-maxY = fig.Children.YLim(2);
+maxX = game.Fig.Children.XLim(2);
+maxY = game.Fig.Children.YLim(2);
 
 while(true)
     try 
