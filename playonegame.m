@@ -3,9 +3,9 @@ function [winner] = playonegame(game,preferences)
     game.IsEnded = false;
     game.CurrentBoardImg = game.BoardImg;
 
-    axis equal;
+    axis image;
     imshow(game.CurrentBoardImg);
-    axis equal;
+    axis image;
 
     while(~game.IsEnded)
         if preferences.PlayerIsComputer(game.CurrentPlayer)
@@ -30,7 +30,7 @@ function [winner] = playonegame(game,preferences)
         elseif ~any(find(game.Board == 0))
             game.IsEnded  = true;
             xlabel('Game ended tie!')
-            winner = nan;
+            winner = 0;
             return;
         end
 
